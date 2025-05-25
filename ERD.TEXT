@@ -1,0 +1,24 @@
+┌──────────────┐             ┌──────────────┐
+│    users     │◄───────────►│ user_courses │
+├──────────────┤             └──────────────┘
+│ id (PK)      │                   ▲
+│ username     │                  ╱
+│ email        │          ┌──────╯
+│ password     │          │
+│ full_name    │    ┌───────────────┐
+│ role         │    │    courses     │
+└──────────────┘    ├───────────────┤
+                    │ id (PK)       │
+                    │ title         │
+                    │ description   │
+                    │ created_by (FK) ──► users.id
+                    └─────┬────────────┘
+                    ┌─────▼──────┐
+                    │  lessons   │
+                    ├────────────┤
+                    │ id         │
+                    │ course_id  │
+                    │ title      │
+                    │ content    │
+                    │ order_idx  │
+                    └────────────┘
